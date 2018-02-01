@@ -8,6 +8,7 @@
 package org.eclipse.iot.unide.ppmp.process;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -38,7 +39,7 @@ public class Measurements {
 	private SeriesMap seriesMap;
 	
 	@JsonProperty("specialValues")
-	private SpecialValueMap specialValues;
+	private List<SpecialValue> specialValues;
 
 	public OffsetDateTime getTimestamp() {
 		return timestamp;
@@ -96,11 +97,11 @@ public class Measurements {
 		this.seriesMap = series;
 	}
 	
-	public SpecialValueMap getSpecialValues() {
+	public List<SpecialValue> getSpecialValues() {
 		return specialValues;
 	}
 
-	public void setSpecialValues(SpecialValueMap specialValues) {
+	public void setSpecialValues(List<SpecialValue> specialValues) {
 		this.specialValues = specialValues;
 	}
 }
