@@ -39,7 +39,7 @@ public class Part {
 	@JsonProperty("metaData")
 	private MetaData metaData; // optional
 
-	public String getPartTypeId() {
+	public String getPartTypeID() {
 		return partTypeID;
 	}
 

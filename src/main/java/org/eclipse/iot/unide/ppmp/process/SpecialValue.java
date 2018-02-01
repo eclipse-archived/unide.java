@@ -9,13 +9,17 @@ package org.eclipse.iot.unide.ppmp.process;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class SpecialValue {
 	
-	@JsonProperty("time")
+	@JsonProperty("$_time")
 	private Number time; // optional
 
+	@JsonProperty("name")
+	private String name; // optional
+
 	@JsonProperty("value")
-	private Number value; // optional
+	private ValuesMap value;
 
 	public Number getTime() {
 		return time;
@@ -25,12 +29,21 @@ public class SpecialValue {
 		this.time = time;
 	}
 	
-	public Number getValue() {
+	public ValuesMap getValue() {
 		return value;
 	}
 
-	public void setValue(Number value) {
+	public String getName() {
+		return name;
+	}
+
+	public void setName( String name ) {
+		this.name = name;
+	}
+
+	public void setValue(ValuesMap value) {
 		this.value = value;
 	}
+
 
 }

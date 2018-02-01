@@ -5,107 +5,101 @@
         "operationalStatus" : "normal",
         "metaData" : {
             "swVersion" : "2.0.3.13",
-            "swBuildId" : "41535"   
+            "swBuildId" : "41535"
         }
     },
     "part" : {
-        "type" : "SINGLE",
         "partTypeID" : "F00VH07328",
         "partID" : "420003844",
+        "type" : "SINGLE",
         "result" : "NOK",
         "code" : "HUH289",
         "metaData" : {
-             "toolId" : "32324-432143"
+            "toolId" : "32324-432143"
         }
     },
+    "measurements" : [ {
+        "ts" : "2002-05-30T09:30:10.123+02:00",
+        "phase" : "phasen name 2",
+        "name" : "500 Grad links drehen",
+        "result" : "NOK",
+        "code" : "0000 EE01",
+        "limits" : {
+            "temperature" : {
+                "upperError" : 4444,
+                "lowerError" : 44,
+                "upperWarn" : 2222,
+                "lowerWarn" : 46
+            }
+        },
+        "series" : {
+            "temperature" : [ 45.4243, 46.42342, 44.2432 ],
+            "force" : [ 26, 23, 24 ],
+            "time" : [ 0, 23, 24 ],
+            "pressure" : [ 52.4, 46.32, 44.2432 ]
+        },
+        "specialValues" : [ {
+            "$_time" : 40,
+            "name" : "specialValuesTestName",
+            "value" : {
+                "force" : 24,
+                "pressure" : 44.2432
+            }
+        } ]
+    }, {
+        "ts" : "2002-05-30T09:30:10.123+02:00",
+        "phase" : "phasen name",
+        "result" : "OK",
+        "limits" : {
+            "force" : {
+                "upperError" : [ 27, 10 ],
+                "lowerError" : [ 25, 12 ]
+            },
+            "pressure" : {
+                "upperError" : [ 46, 19 ],
+                "lowerError" : [ 42, 29 ]
+            }
+        },
+        "series" : {
+            "temperature" : [ 45.4243, 46.42342, 44.2432 ],
+            "force" : [ 26, 23, 24 ],
+            "time" : [ 30, 36, 42 ],
+            "pressure" : [ 52.4, 46.32, 44.2432 ]
+        },
+        "specialValues" : [ {
+            "$_time" : 40,
+            "name" : "specialValuesTestName2",
+            "value" : {
+                "temperature" : 50,
+                "force" : 21
+            }
+        } ]
+    } ],
     "process" : {
-        "externalProcessId" : "b4927dad-58d4-4580-b460-79cefd56775b",
         "ts" : "2002-05-30T09:30:10.123+02:00",
         "result" : "NOK",
+        "externalProcessId" : "b4927dad-58d4-4580-b460-79cefd56775b",
         "shutoffPhase" : "phase 1",
         "program" : {
-            "id" : "1",
             "name" : "Programm 1",
+            "id" : "1",
             "lastChangedDate" : "2002-05-30T09:30:10.123+02:00"
         },
         "shutoffValues" : {
             "force" : {
-                "ts" : "2002-05-30T09:30:11.123+02:00",
-                "value" : 24,
                 "upperError" : 26,
-                "lowerError" : 22
+                "lowerError" : 22,
+                "value" : 24,
+                "ts" : "2002-05-30T09:30:11.123+02:00"
             },
-            "pressure" : {               
-                "value" : 50,
+            "pressure" : {
                 "upperError" : 52,
-                "lowerError" : 48
+                "lowerError" : 48,
+                "value" : 50
             }
         },
         "metaData" : {
             "name" : "Getriebedeckel verschrauben"
         }
-    },
-    "measurements" : [
-        {
-            "ts" : "2002-05-30T09:30:10.123+02:00",
-            "phase" : "phasen name 2",
-            "name" : "500 Grad links drehen",
-            "result" : "NOK",
-            "code" : "0000 EE01",
-            "limits" : {
-                "temperature" : {
-                    "upperError" :  4444,
-                    "lowerError" :  44,
-                    "upperWarn"    :  2222,
-                    "lowerWarn"    :  46,
-                    "target" :  35  
-                }
-            },
-            "specialValues" : {
-                "pressure" : {
-                    "time" : 24,
-                    "value" : 44.2432
-                },
-                "force" :  {
-                    "time" : 24,
-                    "value" : 24
-                }
-            },
-            "series" : {
-                "time" : [0, 23, 24],
-                "force" : [26, 23, 24],
-                "pressure" : [52.4, 46.32, 44.2432],
-                "temperature" : [45.4243, 46.42342, 44.2432]          
-            }
-        },
-        {
-            "ts" : "2002-05-30T09:30:10.123+02:00",
-            "phase" : "phasen name",
-            "result" : "OK",    
-            "limits" : {
-                "force" : {
-                    "upperError" : [27, 24, 25],
-                    "lowerError" : [25, 22, 23]
-                },
-                "pressure" : {
-                    "upperError" : [54, 48, 46],
-                    "lowerError" : [50, 44, 42]
-                }
-            },
-            "specialValues" : {
-                "pressure" : {
-                    "value" : 24
-                },
-                "force" : {
-                    "value": 50
-                }
-            },
-            "series" : {
-                "time" : [30, 36, 42],
-                "force" : [26, 23, 24],
-                "pressure" : [52.4, 46.32, 44.2432],
-                "temperature" : [45.4243, 46.42342, 44.2432]           
-            }
-        }
-    ]
+    }
 }
