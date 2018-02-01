@@ -20,6 +20,12 @@ public class ShutOffValues {
 
 	@JsonProperty("value")
 	private Number value; // optional
+
+	@JsonProperty("upperWarn")
+	private Number upperWarn; // optional
+
+	@JsonProperty("lowerWarn")
+	private Number lowerWarn; // optional
 	
 	@JsonProperty("ts")
 	private OffsetDateTime timestamp; // optional
@@ -56,4 +62,19 @@ public class ShutOffValues {
 		this.timestamp = timestamp;
 	}
 
+	public Number getUpperWarn() {
+		return upperWarn;
+	}
+
+	public void setUpperWarn( Number upperWarn ) {
+		this.upperWarn = upperWarn;
+	}
+
+	public Number getLowerWarn() {
+		return lowerWarn;
+	}
+
+	public void setLowerWarn( Number lowerWarn ) {
+		this.lowerWarn = lowerWarn;
+	}
 }
