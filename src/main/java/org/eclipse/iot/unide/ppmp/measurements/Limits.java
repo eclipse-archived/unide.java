@@ -16,6 +16,9 @@ public class Limits {
 	@JsonProperty("lowerError")
 	private Number lowerError; // optional
 
+	@JsonProperty("target")
+	private Number target; // optional
+
 	@JsonProperty("upperWarn")
 	private Number upperWarn; // optional
 
@@ -36,6 +39,14 @@ public class Limits {
 
 	public void setLowerError(Number lowerError) {
 		this.lowerError = lowerError;
+	}
+
+	public Number getTarget() {
+		return target;
+	}
+
+	public void setTarget(Number target) {
+		this.target = target;
 	}
 
 	public Number getUpperWarn() {

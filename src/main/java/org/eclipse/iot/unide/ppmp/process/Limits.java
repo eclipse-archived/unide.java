@@ -28,6 +28,11 @@ public class Limits {
    @JsonSerialize(using = SingleValueAsArrayUnwrapper.class)
    private List<Number> lowerError; // optional
 
+   @JsonProperty("target")
+   @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
+   @JsonSerialize(using = SingleValueAsArrayUnwrapper.class)
+   private List<Number> target; // optional
+
    @JsonProperty("upperWarn")
    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
    @JsonSerialize(using = SingleValueAsArrayUnwrapper.class)
@@ -49,6 +54,18 @@ public class Limits {
 
    public void setUpperErrorSingleValue(Number upperError) {
       this.upperError = Arrays.asList(upperError);
+   }
+
+   public List<Number> getTarget() {
+      return target;
+   }
+
+   public void setTarget(List<Number> target) {
+      this.target = target;
+   }
+
+   public void setTargetSingleValue(Number target) {
+      this.target = Arrays.asList(target);
    }
 
    public List<Number> getLowerError() {

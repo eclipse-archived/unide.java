@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Bosch Software Innovations GmbH.
+ * Copyright (c) 2018 Bosch Software Innovations GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,6 +20,9 @@ public class ShutOffValues {
 
 	@JsonProperty("value")
 	private Number value; // optional
+
+	@JsonProperty("target")
+	private Number target; // optional
 
 	@JsonProperty("upperWarn")
 	private Number upperWarn; // optional
@@ -54,6 +57,14 @@ public class ShutOffValues {
 		this.value = value;
 	}
 	
+	public Number getTarget() {
+		return target;
+	}
+
+	public void setTarget(Number target) {
+		this.target = target;
+	}
+
 	public OffsetDateTime getTimestamp() {
 		return timestamp;
 	}
