@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2017 Bosch Software Innovations GmbH.
+  ~ Copyright (c) 2018 Bosch Software Innovations GmbH.
   ~ All rights reserved. This program and the accompanying materials
   ~ are made available under the terms of the Eclipse Public License v1.0
   ~ which accompanies this distribution, and is available at
@@ -12,7 +12,7 @@
 
     <groupId>org.eclipse.iot.unide.ppmp</groupId>
     <artifactId>ppmp-java-binding</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.2.0</version>
     <packaging>bundle</packaging>
 
     <distributionManagement>
@@ -29,7 +29,7 @@
     </distributionManagement>
 
     <properties>
-        <jackson.version>2.8.2</jackson.version>
+        <jackson.version>2.9.4</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
