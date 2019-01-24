@@ -34,7 +34,7 @@ public class PPMPPackager {
         mapper.setSerializationInclusion(Include.NON_NULL);
     }
 
-    public String getMessage(Object jsonBean) throws IOException {
+    public String getMessage(Object jsonBean) throws JsonProcessingException {
         String json = mapper.writeValueAsString(jsonBean);
         return json;
     }
