@@ -8,6 +8,8 @@
 package org.eclipse.iot.unide.ppmp.messages;
 
 import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.eclipse.iot.unide.ppmp.commons.MetaData;
 
@@ -30,7 +32,7 @@ public class Message {
 	private MessageType type; // optional
 
 	@JsonProperty("severity")
-	private MessageSeverity severity = MessageSeverity.UNKNOWN; // optional
+	private MessageSeverity severity; // optional
 
 	@JsonProperty("code")
 	private String code;
@@ -67,12 +69,14 @@ public class Message {
 		return timestamp;
 	}
 
+	@JsonIgnore
 	public MessageType getType() {
-		return type;
+		return type == null ? MessageType.DEVICE : type;
 	}
 
+	@JsonIgnore
 	public MessageSeverity getSeverity() {
-		return severity;
+		return severity == null ? MessageSeverity.UNKNOWN : severity;
 	}
 
 	public String getCode() {
@@ -92,11 +96,11 @@ public class Message {
 	}
 
 	public void setType(MessageType type) {
-		this.type = type;
+		this.type = MessageType.DEVICE.equals(type) ? null : type;
 	}
 
 	public void setSeverity(MessageSeverity severity) {
-		this.severity = severity;
+		this.severity = MessageSeverity.UNKNOWN.equals(severity) ? null : severity;
 	}
 
 	public void setCode(String code) {

@@ -12,9 +12,11 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.io.IOUtils;
 import org.eclipse.iot.unide.ppmp.commons.Device;
 import org.eclipse.iot.unide.ppmp.commons.MetaData;
@@ -66,6 +68,58 @@ public class MessagesTest {
 		System.out.println(result);
 
 		JSONAssert.assertEquals(MEASUREMENT_TEST_MESSAGE, result, false);
+	}
+
+	@Test
+	public void verifySeverityDefaultSerialization1() throws JsonProcessingException, JSONException {
+		PPMPPackager packager = new PPMPPackager();
+		MessagesWrapper wrapper = new MessagesWrapper();
+		Message message = new Message();
+		message.setTimestamp(OffsetDateTime.parse("2002-05-30T09:30:10.125+02:00"));
+		message.setCode("33-02");
+		message.setSeverity(Message.MessageSeverity.UNKNOWN); // = default
+		message.setType(Message.MessageType.TECHNICAL_INFO);  // != default
+		wrapper.setMessages(Arrays.asList(message));
+
+		String result = packager.getMessage(wrapper, true);
+
+		System.out.println(result);
+
+		JSONAssert.assertEquals("" +
+				"{\n" +
+				"  \"content-spec\" : \"urn:spec://eclipse.org/unide/machine-message#v2\",\n" +
+				"  \"messages\" : [ {\n" +
+				"    \"ts\" : \"2002-05-30T09:30:10.125+02:00\",\n" +
+				"    \"type\" : \"TECHNICAL_INFO\",\n" +
+				"    \"code\" : \"33-02\"\n" +
+				"  } ]\n" +
+				"}", result, true);
+	}
+
+	@Test
+	public void verifySeverityDefaultSerialization2() throws JsonProcessingException, JSONException {
+		PPMPPackager packager = new PPMPPackager();
+		MessagesWrapper wrapper = new MessagesWrapper();
+		Message message = new Message();
+		message.setTimestamp(OffsetDateTime.parse("2002-05-30T09:30:10.125+02:00"));
+		message.setCode("33-02");
+		message.setSeverity(Message.MessageSeverity.HIGH); // != default
+		message.setType(Message.MessageType.DEVICE);  // = default
+		wrapper.setMessages(Arrays.asList(message));
+
+		String result = packager.getMessage(wrapper, true);
+
+		System.out.println(result);
+
+		JSONAssert.assertEquals("" +
+				"{\n" +
+				"  \"content-spec\" : \"urn:spec://eclipse.org/unide/machine-message#v2\",\n" +
+				"  \"messages\" : [ {\n" +
+				"    \"ts\" : \"2002-05-30T09:30:10.125+02:00\",\n" +
+				"    \"severity\" : \"HIGH\",\n" +
+				"    \"code\" : \"33-02\"\n" +
+				"  } ]\n" +
+				"}", result, true);
 	}
 
 	private MessagesWrapper createMessagesWrapperWithFullData() {
