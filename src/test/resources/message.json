@@ -16,7 +16,6 @@
 		{
 			"origin": "sensor-id-992.2393.22",
 			"ts": "2002-05-30T09:30:10.123+02:00",
-			"type": "DEVICE",
 			"severity": "HIGH",
 			"code": "190ABT",
 			"title": "control board damaged",
